@@ -1,0 +1,26 @@
+{
+  "name": "luoxun/documer",
+  "description": "Bayes algorithm implementation in PHP for auto document classification.",
+  "license": "MIT",
+  "type": "library",
+  "keywords": ["classification","bayes","machine learning"],
+  "homepage": "http://github.com/luoxun/documer",
+  "authors": [
+    {
+      "name": "luoxun",
+      "email": "luoxun007@gmail.com",
+      "homepage": "http://turingxun.cn"
+    }
+  ],
+  "require-dev": {
+    "phpspec/phpspec": "~2.0"
+  },
+  "config": {
+    "bin-dir": "bin"
+  },
+  "autoload": {
+    "psr-4": {
+      "Documer\\": "src/"
+    }
+  }
+}

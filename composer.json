@@ -1,24 +1,18 @@
 {
-  "name": "kbariotis/documer",
-  "description": "Bayes algorithm implementation in PHP for auto document classification.",
-  "license": "MIT",
-  "type": "library",
-  "keywords": ["classification","bayes","machine learning"],
-  "homepage": "http://github.com/kbariotis/documer",
-  "authors": [
-    {
-      "name": "Kostas Bariotis",
-      "email": "konmpar@gmail.com",
-      "homepage": "http://kostasbariotis.com"
-    }
-  ],
-  "require-dev": {
-    "phpspec/phpspec": "~2.0"
-  },
-  "config": {
-    "bin-dir": "bin"
-  },
-  "autoload": {
+    "name": "luoxun/documer",
+    "homepage": "http://github.com/luoxun/documer",
+    "keywords": ["classification","bayes","machine learning"],
+
+    "authors": [
+        {
+            "name": "luoxun",
+            "email": "luoxun007@gmail.com"
+        }
+    ],
+    "require": {
+
+    },
+    "autoload": {
     "psr-4": {
       "Documer\\": "src/"
     }
