@@ -69,16 +69,29 @@ Class Documer
     {
         $unwantedChars = array(
             ',', '!', '?', '.', ']', '[', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', '/', ':', ';', '<',
-            '=', '>', '?', '^', '{', '|', '}', '~', '-', '@', '\', ', '_', '`'
+            '=', '>', '?', '^', '{', '|', '}', '~', '-', '@', '\', ', '_', '`',' (', ') '
         );
 
         $str   = str_replace($unwantedChars, ' ', $text);
+
+        var_dump($str);
+
+        $reulst = $this->ansyWord($str);
+
+        var_dump($reulst);
+
+        return $reulst;
+
+
+
         $array = explode(" ", $str);
         $array = array_map('trim', $array);
         $array = array_unique($array);
         $array = array_values($array);
 
         $clean = array();
+
+
         foreach ($array as $k)
             if ($this->startsWithUppercase($k))
                 $clean[ ] = $k;
@@ -86,18 +99,58 @@ Class Documer
         return array_values($clean);
     }
 
+    private function ansyWord($context){
+        
+
+        $context = urlencode($context);
+
+        $fenciUrl = 'http://2.deno.applinzi.com?str='.$context;
+
+        //初始化
+        $ch = curl_init();
+        //设置选项，包括URL
+        curl_setopt($ch, CURLOPT_URL, $fenciUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        //执行并获取HTML文档内容
+        $output = curl_exec($ch);
+        //释放curl句柄
+        curl_close($ch);
+        //echo($output);
+
+        $jsonout = $output;
+        $jsonout = json_decode($output);
+        $result = array();
+
+
+
+        foreach ($jsonout as $key => $value) {
+
+            // 并且删除掉一些无用的词语
+            if (!empty(trim($value->word))  and  !in_array($value->word_tag,array(155,154,71,81,60,190))  ) {
+
+                array_push($result, $value->word);
+            }
+        }
+
+        return $result;     
+    }
+
+
     /*
      * This is the guessing method, which uses Bayes Theorem to calculate probabilities
      */
     public function guess($text)
     {
         $scores = array();
+       
         $words  = $this->parse($text);
 
         $labels = $this->getStorage()
                        ->getDistinctLabels();
-
         foreach ($labels as $label) {
+
+
             $logSum = 0;
 
             foreach ($words as $word) {
@@ -113,6 +166,7 @@ Class Documer
 
                     $wordProbability        = $this->getStorage()
                                                    ->getWordProbabilityWithLabel($word, $label);
+
                     $wordInverseProbability = $this->getStorage()
                                                    ->getInverseWordProbabilityWithLabel($word, $label);
 
@@ -137,6 +191,7 @@ Class Documer
              */
             $scores[ $label ] = 1 / (1 + exp($logSum));
         }
+
 
 
         return $scores;

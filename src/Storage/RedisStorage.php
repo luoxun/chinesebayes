@@ -2,7 +2,7 @@
 
 namespace Documer\Storage;
 
-interface Adapter
+class RedisStorage implements Adapter
 {
 
     /**
@@ -10,7 +10,10 @@ interface Adapter
      *
      * @return array
      */
-    public function getDistinctLabels();
+    public function getDistinctLabels()
+    {
+
+    }
 
     /**
      * Get how many times we have seen this word before
@@ -19,7 +22,10 @@ interface Adapter
      *
      * @return int
      */
-    public function getWordCount($word);
+    public function getWordCount($word)
+    {
+
+    }
 
     /**
      * Get the probability that this word shows up in a LABEL document
@@ -29,7 +35,10 @@ interface Adapter
      *
      * @return float
      */
-    public function getWordProbabilityWithLabel($word, $label);
+    public function getWordProbabilityWithLabel($word, $label)
+    {
+
+    }
 
     /**
      * Get the probability that this word shows up in a any other LABEL
@@ -38,10 +47,18 @@ interface Adapter
      * @param $label
      *
      * @return float     */
-    public function getInverseWordProbabilityWithLabel($word, $label);
+    public function getInverseWordProbabilityWithLabel($word, $label)
+    {
 
-    public function insertLabel($label);
+    }
 
-    public function insertWord($word, $label);
+    public function insertLabel($label)
+    {
 
+    }
+
+    public function insertWord($word, $label)
+    {
+
+    }
 }
