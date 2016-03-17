@@ -17,12 +17,6 @@
     "autoload": {
     "psr-4": {
       "Documer\\": "src/"
-    },
-        "repositories": {
-        "packagist": {
-            "type": "composer",
-            "url": "https://packagist.phpcomposer.com"
-        }
     }
   }
 }
