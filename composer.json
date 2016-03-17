@@ -2,6 +2,7 @@
     "name": "luoxun/chinesebayes",
     "homepage": "http://github.com/luoxun/chinesebayes",
     "keywords": ["classification","bayes","machine learning"],
+    "description": "中文贝叶斯学习",
 
     "authors": [
         {
