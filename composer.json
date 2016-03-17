@@ -12,8 +12,7 @@
     "require": {
         "predis/predis": "^1.0",
         "monolog/monolog": "^1.18",
-        "eden/sqlite": "^4.0",
-
+        "eden/sqlite": "^4.0"
     },
     "autoload": {
     "psr-4": {
