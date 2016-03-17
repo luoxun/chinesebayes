@@ -5,6 +5,9 @@ Bayes algorithm implementation in PHP for auto document classification.
 Concept
 -----------------------------
 
+老外的很多贝叶斯 都是用英文分词和学习 还抛弃了很多词,特地弄个东西 大家尝试一下
+
+目前不完善 请暂不要下载
 _every document has key words e.g. *Margaret Thatcher*_
 
 _every document has a label e.g. *Politics*_
