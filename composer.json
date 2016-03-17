@@ -1,6 +1,6 @@
 {
-    "name": "luoxun/documer",
-    "homepage": "http://github.com/luoxun/documer",
+    "name": "luoxun/chinesebayes",
+    "homepage": "http://github.com/luoxun/chinesebayes",
     "keywords": ["classification","bayes","machine learning"],
 
     "authors": [
@@ -13,7 +13,6 @@
         "predis/predis": "^1.0",
         "monolog/monolog": "^1.18",
         "eden/sqlite": "^4.0",
-
     },
     "autoload": {
     "psr-4": {
