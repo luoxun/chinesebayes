@@ -13,11 +13,18 @@
     "require": {
         "predis/predis": "^1.0",
         "monolog/monolog": "^1.18",
-        "eden/sqlite": "^4.0"
+        "eden/sqlite": "^4.0",
+        "illuminate/support": ">=4.0"
+    },
+
+    "config": {
+        "preferred-install": "dist",
+
+        "secure-http": false
     },
     "autoload": {
     "psr-4": {
-      "Documer\\": "src/"
+      "Bayes\\": "src/"
     }
   }
 }

@@ -74,11 +74,11 @@ Class Documer
 
         $str   = str_replace($unwantedChars, ' ', $text);
 
-        var_dump($str);
+        //var_dump($str);
 
         $reulst = $this->ansyWord($str);
 
-        var_dump($reulst);
+        //var_dump($reulst);
 
         return $reulst;
 

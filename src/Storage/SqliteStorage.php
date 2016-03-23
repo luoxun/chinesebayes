@@ -116,9 +116,11 @@ class SqliteStorage implements Adapter
     {
         $db = $this->databases;
 
+
         $data = $db->search('label')
-            ->addFilter('name = "$label"')
+            ->addFilter('name = '.' "'.$label.'" ')
             ->setColumns('*')->getRow();
+        //var_dump($data);exit;
 
         if(empty($data)){
 
