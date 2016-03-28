@@ -20,11 +20,11 @@
     "config": {
         "preferred-install": "dist",
 
-        "secure-http": false
+        "secure-http": true
     },
     "autoload": {
-    "psr-4": {
-      "Bayes\\": "src/"
+         "psr-4": {
+         "Bayes\\": "src/"
     }
   }
 }

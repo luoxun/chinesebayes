@@ -1,8 +1,10 @@
 <?php
 
-namespace Documer\Storage;
+namespace Bayes\Storage;
 
-class Memory implements Adapter
+use Bayes\IBayes\IAdapter;
+
+class Memory implements IAdapter
 {
 
     var $words = array();

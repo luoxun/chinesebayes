@@ -1,10 +1,10 @@
 <?php
 
-namespace Documer;
+namespace Bayes;
 
-use Documer\Storage\Adapter;
+use Bayes\IBayes\IAdapter;
 
-Class Documer
+Class Bayes
 {
 
     /**
@@ -16,7 +16,7 @@ Class Documer
     {
         mb_internal_encoding("UTF-8");
 
-        if ($storage instanceof Adapter)
+        if ($storage instanceof IAdapter)
             $this->storage = $storage;
         else
             throw new \Exception('Storage must implement Documer\Storage\Adapter interface.');

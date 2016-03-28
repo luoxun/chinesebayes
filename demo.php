@@ -12,42 +12,17 @@ $fenciUrl = 'http://luoxunfenc.applinzi.com/?str='.$chinese_text;
 
 
 
-<tr>
-    <td></td>
-    <td>
-            <label><input name="Fruit" type="radio" value="" />苹果 </label> 
-            <label><input name="Fruit" type="radio" value="" />桃子 </label> 
-            <label><input name="Fruit" type="radio" value="" />香蕉 </label> 
-            <label><input name="Fruit" type="radio" value="" />梨 </label> 
-            <label><input name="Fruit" type="radio" value="" />其它 </label>
-    </td>
-    <td>
-            <label><input name="Fruit" type="radio" value="" />苹果 </label> 
-            <label><input name="Fruit" type="radio" value="" />桃子 </label> 
-            <label><input name="Fruit" type="radio" value="" />香蕉 </label> 
-            <label><input name="Fruit" type="radio" value="" />梨 </label> 
-            <label><input name="Fruit" type="radio" value="" />其它 </label>
-    </td>
-
-    <td>
-            <label><input name="Fruit" type="radio" value="" />苹果 </label> 
-            <label><input name="Fruit" type="radio" value="" />桃子 </label> 
-            <label><input name="Fruit" type="radio" value="" />香蕉 </label> 
-            <label><input name="Fruit" type="radio" value="" />梨 </label> 
-            <label><input name="Fruit" type="radio" value="" />其它 </label>
-    </td>
-
-
-</tr>
-
-
-exit;
 
 //$array = asyncWord('罗技键盘K240');
 
+$demo = new Bayes\BayesServiceProvider();
 
+var_dump($demo);
+
+exit;
 //$documer = new Documer\Documer(new \Documer\Storage\Memory());
-$documer = new Documer\Documer(new \Documer\Storage\SqliteStorage());
+$documer = new Bayes\Bayes(new Bayes\Storage\Memory());
+// $documer = new Documer\Documer(new \Documer\Storage\SqliteStorage());
 
 
 $documer->train('good', '罗技（Logitech）M185 无线鼠标 黑色灰边');
@@ -63,7 +38,7 @@ $scores = $documer->guess('罗技（Logitech）MK345 无线键鼠套装');
 
 
 var_dump($scores);
-
+exit;
 
 
 
