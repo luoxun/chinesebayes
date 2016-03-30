@@ -1,11 +1,11 @@
 <?php
 
-namespace Documer\Storage;
+namespace Bayes\Storage;
 
-use Documer\DocumerConfig;
-use Documer\medoo;
+use Bayes\IBayes\IAdapter;
 
-class SqliteStorage implements Adapter
+
+class SqliteStorage implements IAdapter
 {
 
     var $labels ;
@@ -18,12 +18,9 @@ class SqliteStorage implements Adapter
     const DBWORD = 'word';
 
 
-    function __construct()
+    function __construct($sqliteFile)
     {
-        $config = new DocumerConfig();
-
-        $database = $this->eden('sqlite', $config->sqlite['dbfile']['dbpath'].'/'.$config->sqlite['dbfile']['filename']);
-
+        $database = $this->eden('sqlite', $sqliteFile);
         $this->databases = $database;
         $data = $database->search('label')
            ->addFilter('name = "good"')

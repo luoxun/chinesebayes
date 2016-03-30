@@ -1,6 +1,6 @@
 <?php
 
-namespace Documer\Storage;
+namespace Bayes\Storage;
 
 class RedisStorage implements Adapter
 {

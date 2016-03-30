@@ -54,6 +54,7 @@ Class Bayes
                  ->insertWord($k, $label);
 
         }
+        return true;
     }
 
     /**
