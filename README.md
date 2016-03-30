@@ -1,70 +1,30 @@
-Documer
-==============
-Bayes algorithm implementation in PHP for auto document classification.
+#中文贝叶斯插件
 
-Concept
------------------------------
+###1. 简介
+github上有很多老外的贝叶斯算法,但是中文分词和English 有明显的不同.so.抽空自己写了一个,分词服务的话,可以用文中的地址试验(求不要在生产环境) 我试了三方的分词服务,比较明显的一个词语是iphone6S这个单词,新浪的SAE分出来是iphone 和 6S 而其他很多分词服务都是iphone 6 S ,所以就用的新浪的分词服务,反正不贵 是吧.
+	:-)
+	
 
-老外的很多贝叶斯 都是用英文分词和学习 还抛弃了很多词,特地弄个东西 大家尝试一下
+###.安装
 
-目前不完善 请暂不要下载
-_every document has key words e.g. *Margaret Thatcher*_
 
-_every document has a label e.g. *Politics*_
-
-Suppose, that in every document there are *key words all starting with an uppercase letter*. We store these words in our DB end every time we need to guess a document against a particular *label*, we use Bayes algorithm.
-
-Let's clear that out:
-
-**Training:**
-
-First, we tokenize the document and keep only our key words (All words starting with an uppercase letter) in an array. We store that array in our DB.
-
-**Guessing:**
-
-This is very simple. Again, we parse the document we want to be classified and create an array with the key words. Here is the pseudo code:
-
-	for every label in DB
-		for every key word in document
-			P(label/word) = P(word/label)P(label) /	( P(word/label)P(label) + (1 - P(word/label))(1 - P(label)) )
-
-Usage
-------------
-**Install through composer**
+**composer 安装**
 
 ```json
 "require": {
-    "kbariotis/documer": "dev-master"
+    "luoxun/chinesebayes": "dev-master"
   },
 ```
 
-**Instantiate**
-
-Pass a Storage Adapter object to the Documer Constructor.
-
-```php
-
-$documer = new Documer\Documer(new \Documer\Storage\Memory());
+###使用
+#### 普通使用
+ 
+#### laravel中使用
+```php 
+1. 学习
+Bayes::train('good','罗技鼠标');
+2. 分析
+Bayes::guess('罗技'));
+ 
 ```
 
-**Train**
-
-```php
-$documer->train('politics', 'This is text about Politics and more');
-$documer->train('philosophy', 'Socrates is an ancent Greek philosopher');
-$documer->train('athletic', 'Have no idea about athletics. Sorry.');
-$documer->train('athletic', 'Not a clue.');
-$documer->train('athletic', 'It is just not my thing.');
-```
-
-**Guess**
-
-```php
-$scores = $documer->guess('What do we know about Socrates?');
-```
-
-`$scores` will hold an array with all labels of your system and the posibbility which the document will belong to
-each label.
-
-**Storage Adapters**
-Implement [Documer\Storage\Adapter](src/Storage/Adapter.php) to create your own Storage Adapter.
